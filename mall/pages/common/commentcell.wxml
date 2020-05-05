@@ -1,0 +1,71 @@
+<template name="mainTabCell">
+  <view class="mainTabCell">
+    <!-- 顶部 -->
+    <view class="top">
+      <!-- 头像 -->
+      <image class="avator" mode="aspectFit" src="{{item.profile_image}}" />
+      <!-- 标题.时间 -->
+      <view class="title-time">
+        <text class="title">{{item.name}}</text>
+        <text class="time">{{item.create_time}}</text>
+      </view>
+      <!-- 更多 -->
+      <image class="btnnormal" src="/images/index/morebtnnormal.png" />
+    </view>
+    <!-- 内容 -->
+    <view class="content">
+      <text class="content-text">{{item.text}}</text>
+      <!-- 大图 -->
+      <view class="content-multimedia" hidden="{{(item.image1&&(!item.videouri&&!item.voiceuri))?false:true}}">
+        <image src="{{item.image1}}" mode="scaleToFill" style="width:{{item.width}}rpx;height:{{item.height}}rpx;"/>
+      </view>
+      <!-- 视频 -->
+      <view class="content-multimedia" hidden="{{item.videouri?false:true}}">
+        <video id="" src="{{item.videouri}}" bindplay="videoPlay"/>
+      </view>
+      <!-- 音频 -->
+      <view class="content-multimedia" hidden="{{item.voiceuri ? false : true}}">
+        <audio id="{{item.id}}" src="{{item.voiceuri}}" poster="{{item.bimageuri}}" />
+      </view>
+    </view>
+    <!-- 底部 -->
+    <view class="bottom">
+      <!-- 赞 -->
+      <view class="bottom-item">
+        <view class="bottom-item-content">
+          <image src="../../images/index/mainCellDing.png" mode="center" />
+          <text class="bottom-item-zan">{{item.love}}</text>
+        </view>
+          <!-- 分割线 -->
+          <view class="cut-line"></view>
+      </view>
+      <!-- 踩 -->
+      <view class="bottom-item">
+        <view class="bottom-item-content cai">
+          <image src="../../images/index/mainCellCai.png" mode="center" />
+          <text class="bottom-item-zan">{{item.hate}}</text>
+        </view>
+          <!-- 分割线 -->
+          <view class="cut-line"></view>
+      </view>
+      <!-- 转发 -->
+      <view class="bottom-item">
+        <view class="bottom-item-content">
+          <image src="../../images/index/mainCellShare.png" mode="center" />
+          <text class="bottom-item-zan">{{item.repost}}</text>
+        </view>
+          <!-- 分割线 -->
+          <view class="cut-line"></view>
+      </view>
+      <!-- 评论 -->
+      <view class="bottom-item">
+        <view class="bottom-item-content">
+          <image src="../../images/index/mainCellComment.png" mode="center" />
+          <text class="bottom-item-zan">{{item.comment}}</text>
+        </view>
+          <!-- 分割线 -->
+          <view class="cut-line"></view>
+      </view>
+    </view>
+  </view>
+</template>
